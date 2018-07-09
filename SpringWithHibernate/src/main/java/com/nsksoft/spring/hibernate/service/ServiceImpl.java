@@ -1,12 +1,12 @@
 package com.nsksoft.spring.hibernate.service;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
 import com.nsksoft.spring.hibernate.repositry.Repositry;
 
@@ -23,35 +23,43 @@ public class ServiceImpl implements Service {
 		return i;
 	}
 
-	public void getUser() {
+	public List<String> getUser() {
 		// TODO Auto-generated method stub
 
-		List<String> user_details = springrepo.get_User_info();
-		Iterator<String> itr = user_details.iterator();
-		while (itr.hasNext()) {
-			Object obj = itr.next();
-			User u = (User) obj;
-			System.out.println(u.getFirst_name());
-			System.out.println(u.getEmail());
+		List complete_users_details = springrepo.get_User_info();
 
-		}
+		return complete_users_details;
+	}
+
+	public List<String> getDistinctCountriesByUser() {
+		// TODO Auto-generated method stub
+
+		List county_users_details = springrepo.getDiffernet_countries_user_info();
+
+		return county_users_details;
 
 	}
 
-	public void getUserinfo() {
+	@Transactional
+	public void addProfile_details(Profile p) {
 		// TODO Auto-generated method stub
 	
-
-		List<String> user_details = springrepo.get_User_info1();
-		Iterator<String> itr = user_details.iterator();
-		while (itr.hasNext()) {
-			Object obj = itr.next();
-			User u = (User) obj;
-			System.out.println(u.getFirst_name());
-			System.out.println(u.getEmail());
-
-		}
+		springrepo.addprofile(p);
 		
 	}
+
+	@org.springframework.transaction.annotation.Transactional
+	public void update_User_details(int i) {
+		// TODO Auto-generated method stub
+		springrepo.updateUser(i);
+	}
+
+	public void deleteUser(int i) {
+		// TODO Auto-generated method stub
+		springrepo.delete_user_info(i);
+	}
+
+	
+	
 
 }

@@ -10,12 +10,12 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "UserDetails")
+@Table(name ="userdetails")
 @Component
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
 	private String email;
 	@Column(name = "pass_word")
@@ -31,7 +31,7 @@ public class User {
 	private String state;
 	private String pincode;
 	private String dob;
-
+	
 	public String getEmail() {
 		return email;
 	}
