@@ -14,7 +14,7 @@ public class DeleteUser {
 		
 		ApplicationContext cotext=new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		Service service=cotext.getBean(Service.class);
-		service.deleteUser(4);
+		service.deleteUser(2);
 		
 		
 	}

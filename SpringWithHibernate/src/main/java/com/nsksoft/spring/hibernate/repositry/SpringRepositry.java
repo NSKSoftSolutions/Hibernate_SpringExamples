@@ -32,6 +32,7 @@ public class SpringRepositry implements Repositry {
 		// TODO Auto-generated method stub
 
 		Session session = factory.openSession();
+		Transaction tx=session.beginTransaction();
 		result = (Integer) session.save(user);
 		System.out.println("Object Saved Successfully");
 		return result;
@@ -69,16 +70,6 @@ public class SpringRepositry implements Repositry {
 		return result;
 	}
 
-	
-	public void update_user_info() {
-		// TODO Auto-generated method stub
-
-		Session session = factory.openSession();
-		Query q1=session.createQuery(HQLConstants.update_det);
-              int result=q1.executeUpdate();   
-		
-	}
-
 	public void delet_User() {
 		// TODO Auto-generated method stub
 
@@ -86,39 +77,41 @@ public class SpringRepositry implements Repositry {
 		session.createQuery(HQLConstants.deleteQuery);
 
 	}
-  
-	
+
 	public void addprofile(Profile p) {
 		// TODO Auto-generated method stub
-	
-	Session session=factory.openSession();
-		    session.save(p);
+
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(p);
+		tx.commit();
+
 	}
 
 	public void updateUser(int i) {
 		// TODO Auto-generated method stub
 
-
 		Session session = factory.openSession();
-	    Transaction tx=session.beginTransaction();
-		Query q1=session.createQuery(HQLConstants.update_det1);
-              q1.setParameter(0, i);       
-		int result=q1.executeUpdate();   
-                   tx.commit();
-                   session.close();
-		
+		Transaction tx = session.beginTransaction();
+		Query q1 = session.createQuery(HQLConstants.update_det1);
+		q1.setParameter(0, i);
+		int result = q1.executeUpdate();
+		tx.commit();
+		session.close();
+
 	}
 
-	
+	@SuppressWarnings("deprecation")
 	public void delete_user_info(int i) {
 		// TODO Auto-generated method stub
 		Session session = factory.openSession();
-	    Transaction tx=session.beginTransaction();
-		Query q1=session.createQuery(HQLConstants.deleteQuery);
-              q1.setParameter(0, i);       
-		       tx.commit();
-		       session.close();
-		
+		Transaction tx = session.beginTransaction();
+		Query q1 = session.createQuery(HQLConstants.deleteQuery);
+		q1.setParameter(0, i);
+		      q1.executeUpdate();
+		tx.commit();
+		session.close();
+
 	}
 
 }

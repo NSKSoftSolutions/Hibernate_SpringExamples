@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
@@ -17,7 +16,6 @@ public class ServiceImpl implements Service {
 	private Repositry springrepo;
 	int i;
 
-	@Transactional
 	public int adduser(User user) {
 		i = springrepo.save_user_detilas(user);
 		return i;
@@ -40,7 +38,6 @@ public class ServiceImpl implements Service {
 
 	}
 
-	@Transactional
 	public void addProfile_details(Profile p) {
 		// TODO Auto-generated method stub
 	
@@ -48,7 +45,6 @@ public class ServiceImpl implements Service {
 		
 	}
 
-	@org.springframework.transaction.annotation.Transactional
 	public void update_User_details(int i) {
 		// TODO Auto-generated method stub
 		springrepo.updateUser(i);

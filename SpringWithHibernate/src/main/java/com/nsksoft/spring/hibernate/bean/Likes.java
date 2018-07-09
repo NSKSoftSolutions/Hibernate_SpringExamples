@@ -12,14 +12,7 @@ public class Likes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int like_id;
-
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
+	
 
 	private String type_of_like;
 	private String liked_by;

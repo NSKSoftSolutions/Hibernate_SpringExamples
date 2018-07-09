@@ -27,11 +27,7 @@ public class GetUserdetails {
             logger.info("Last Name:"+u.getLast_name());
             logger.info("Email:"+u.getEmail());
             logger.info("Mobile Number:"+u.getMobile());
-            logger.info("Country:"+u.getCountry());
-            logger.info("Present Address:"+u.getPresent_address());
-            logger.info("Permanent Address:"+u.getPermanent_adreess());
-            logger.info("Gender:"+u.getGender());
-            logger.info("Marital Status:"+u.getMarital_status());
+           
             
 		}
 	}
