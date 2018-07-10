@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.nsksoft.spring.hibernate.bean.Category;
 import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
 import com.nsksoft.spring.hibernate.repositry.Repositry;
@@ -53,6 +54,28 @@ public class ServiceImpl implements Service {
 	public void deleteUser(int i) {
 		// TODO Auto-generated method stub
 		springrepo.delete_user_info(i);
+	}
+
+	public List<String> getProfileLikes() {
+		// TODO Auto-generated method stub
+		
+		List<String> list=springrepo.retrieve_all_details();
+		return list;
+		
+	}
+
+	public int update_Profile_likes(String string) {
+		// TODO Auto-generated method stub
+		int i=springrepo.update_profile(string);
+		
+		return i;
+	}
+
+	public void addcategory_brand_item_details(Category cate_gory) {
+		// TODO Auto-generated method stub
+		
+		springrepo.addItemstoShopperAdda(cate_gory);
+		
 	}
 
 	

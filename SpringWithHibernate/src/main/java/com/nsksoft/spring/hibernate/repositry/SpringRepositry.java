@@ -2,13 +2,15 @@ package com.nsksoft.spring.hibernate.repositry;
 
 import java.util.List;
 
-import org.hibernate.Query;
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.nsksoft.spring.hibernate.bean.Category;
 import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
 import com.nsksoft.spring.hibernate.hqlquery.HQLConstants;
@@ -32,7 +34,7 @@ public class SpringRepositry implements Repositry {
 		// TODO Auto-generated method stub
 
 		Session session = factory.openSession();
-		Transaction tx=session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		result = (Integer) session.save(user);
 		System.out.println("Object Saved Successfully");
 		return result;
@@ -101,14 +103,48 @@ public class SpringRepositry implements Repositry {
 
 	}
 
-	@SuppressWarnings("deprecation")
 	public void delete_user_info(int i) {
 		// TODO Auto-generated method stub
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
 		Query q1 = session.createQuery(HQLConstants.deleteQuery);
 		q1.setParameter(0, i);
-		      q1.executeUpdate();
+		q1.executeUpdate();
+		tx.commit();
+		session.close();
+
+	}
+
+	public List<String> retrieve_all_details() {
+		// TODO Auto-generated method stub
+
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		Query q = session.createQuery(HQLConstants.retrieve_profile);
+		List<String> list = q.getResultList();
+		tx.commit();
+		return list;
+	}
+
+	public int update_profile(String email) {
+		// TODO Auto-generated method stub
+
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		Query q = session.createQuery(HQLConstants.update_profile_user_name);
+
+		q.setParameter(0, email);
+		int result = q.executeUpdate();
+		tx.commit();
+		return result;
+	}
+
+	public void addItemstoShopperAdda(Category cate_gory) {
+		// TODO Auto-generated method stub
+
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(cate_gory);
 		tx.commit();
 		session.close();
 

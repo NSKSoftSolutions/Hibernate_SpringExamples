@@ -2,6 +2,7 @@ package com.nsksoft.spring.hibernate.service;
 
 import java.util.List;
 
+import com.nsksoft.spring.hibernate.bean.Category;
 import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
 
@@ -13,6 +14,9 @@ public interface Service {
 	public void addProfile_details(Profile p);
 	public void update_User_details(int i);
 	public void deleteUser(int i);
+	public List getProfileLikes();
+	public int update_Profile_likes(String string);
+	public void addcategory_brand_item_details(Category cate_gory);
 	
 	
 }

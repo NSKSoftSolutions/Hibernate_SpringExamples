@@ -25,17 +25,17 @@ public class AddProfileLikes {
 		logger.info("Creating an Object Of User and Setting the Values");
 
 		Likes likes = new Likes();
-		likes.setType_of_like("Thump Up");
-		likes.setNo_of_likes(14);
-		likes.setLiked_by("syncon Employeess");
+		likes.setType_of_like("WOW");
+		likes.setNo_of_likes(1);
+		likes.setLiked_by("venkat Sai Thota");
 
 		Set<Likes> likes_info = new HashSet<Likes>();
 		likes_info.add(likes);
 
 		Profile p = new Profile();
-		p.setName("sajad");
+		p.setName("Akil");
 		p.setLikes(likes_info);
-		p.setUser_id("navabsajjad.alikhan@gmail.com");
+		p.setUser_id("akhilmessi@gmail.com");
 
 		service.addProfile_details(p);
 

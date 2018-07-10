@@ -14,6 +14,8 @@ public class HQLConstants {
 
     //delete cquerys
     public static String deleteQuery="delete from User u where u.user_id=?";
+	public static String retrieve_profile="from Profile p inner join Likes l on l.user_id=p.user_id";
+	public static String update_profile_user_name="update Profile p set p.name='sadakhat' where p.user_id='?'";
 
 
 }

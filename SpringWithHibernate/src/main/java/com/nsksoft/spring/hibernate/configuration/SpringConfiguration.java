@@ -12,6 +12,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import com.nsksoft.spring.hibernate.bean.Brand;
+import com.nsksoft.spring.hibernate.bean.Category;
+import com.nsksoft.spring.hibernate.bean.ItemList;
 import com.nsksoft.spring.hibernate.bean.Likes;
 import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
@@ -45,7 +48,7 @@ public class SpringConfiguration {
 		prop.put("hibernate.show_sql", Constant.hibernate_show_sql);
 
 		builder.addProperties(prop);
-		builder.addAnnotatedClasses(User.class,Profile.class,Likes.class);
+		builder.addAnnotatedClasses(User.class,Profile.class,Likes.class,Brand.class,Category.class,ItemList.class);
 		logger.info("returning the sessionFactory");
 		return builder.buildSessionFactory();
 

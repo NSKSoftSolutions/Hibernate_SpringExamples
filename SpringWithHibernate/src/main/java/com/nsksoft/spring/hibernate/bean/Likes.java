@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="like_info")
 public class Likes {
 
 	private String user_id;
@@ -15,6 +17,12 @@ public class Likes {
 	
 
 	private String type_of_like;
+	@Override
+	public String toString() {
+		return "Likes [user_id=" + user_id + ", like_id=" + like_id + ", type_of_like=" + type_of_like + ", liked_by="
+				+ liked_by + ", no_of_likes=" + no_of_likes + "]";
+	}
+
 	private String liked_by;
 	private int no_of_likes;
 

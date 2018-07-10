@@ -2,6 +2,7 @@ package com.nsksoft.spring.hibernate.repositry;
 
 import java.util.List;
 
+import com.nsksoft.spring.hibernate.bean.Category;
 import com.nsksoft.spring.hibernate.bean.Profile;
 import com.nsksoft.spring.hibernate.bean.User;
 
@@ -14,6 +15,9 @@ public interface Repositry {
 	public void addprofile(Profile p);
 	public void updateUser(int i);
 	public void delete_user_info(int i);
+	public List<String> retrieve_all_details();
+	public int update_profile(String email);
+	public void addItemstoShopperAdda(Category cate_gory);
 	
 	
 }
