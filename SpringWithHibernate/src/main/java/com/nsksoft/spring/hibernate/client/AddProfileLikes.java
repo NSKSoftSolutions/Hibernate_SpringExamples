@@ -35,7 +35,6 @@ public class AddProfileLikes {
 		Profile p = new Profile();
 		p.setName("Akil");
 		p.setLikes(likes_info);
-		p.setUser_id("akhilmessi@gmail.com");
 
 		service.addProfile_details(p);
 

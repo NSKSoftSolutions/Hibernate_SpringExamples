@@ -41,9 +41,9 @@ public class ServiceImpl implements Service {
 
 	public void addProfile_details(Profile p) {
 		// TODO Auto-generated method stub
-	
+
 		springrepo.addprofile(p);
-		
+
 	}
 
 	public void update_User_details(int i) {
@@ -58,27 +58,32 @@ public class ServiceImpl implements Service {
 
 	public List<String> getProfileLikes() {
 		// TODO Auto-generated method stub
-		
-		List<String> list=springrepo.retrieve_all_details();
+
+		List<String> list = springrepo.retrieve_all_details();
 		return list;
-		
+
 	}
 
-	public int update_Profile_likes(String string) {
+	public int update_Profile_likes(int string) {
 		// TODO Auto-generated method stub
-		int i=springrepo.update_profile(string);
-		
+		int i = springrepo.update_profile(string);
+
 		return i;
 	}
 
 	public void addcategory_brand_item_details(Category cate_gory) {
 		// TODO Auto-generated method stub
-		
+
 		springrepo.addItemstoShopperAdda(cate_gory);
-		
+
 	}
 
-	
-	
+	public int delete_profile_and_likes_info(int i) {
+		// TODO Auto-generated method stub
+
+		int rows_deleted = springrepo.delete_Profile_likes(i);
+
+		return rows_deleted;
+	}
 
 }

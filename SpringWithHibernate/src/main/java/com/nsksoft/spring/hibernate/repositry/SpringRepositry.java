@@ -2,11 +2,11 @@ package com.nsksoft.spring.hibernate.repositry;
 
 import java.util.List;
 
-import javax.persistence.Query;
-
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -126,14 +126,15 @@ public class SpringRepositry implements Repositry {
 		return list;
 	}
 
-	public int update_profile(String email) {
+	@SuppressWarnings("deprecation")
+	public int update_profile(int user_id) {
 		// TODO Auto-generated method stub
 
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
-		Query q = session.createQuery(HQLConstants.update_profile_user_name);
-
-		q.setParameter(0, email);
+		
+		NativeQuery q=session.createSQLQuery(HQLConstants.update_profile_user_name);
+		q.setParameter(0,user_id);
 		int result = q.executeUpdate();
 		tx.commit();
 		return result;
@@ -148,6 +149,20 @@ public class SpringRepositry implements Repositry {
 		tx.commit();
 		session.close();
 
+	}
+
+	public int delete_Profile_likes(int user_id) {
+		// TODO Auto-generated method stub
+
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		NativeQuery q1 = session.createSQLQuery(HQLConstants.delete_profile_and_likes);
+		       q1.setParameter(0,user_id);
+		int delete_row = q1.executeUpdate();
+
+		
+		
+		return delete_row;
 	}
 
 }

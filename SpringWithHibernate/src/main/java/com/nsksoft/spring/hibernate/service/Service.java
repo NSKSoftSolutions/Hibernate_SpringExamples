@@ -15,8 +15,9 @@ public interface Service {
 	public void update_User_details(int i);
 	public void deleteUser(int i);
 	public List getProfileLikes();
-	public int update_Profile_likes(String string);
+	public int update_Profile_likes(int i);
 	public void addcategory_brand_item_details(Category cate_gory);
+	public int delete_profile_and_likes_info(int i);
 	
 	
 }

@@ -11,7 +11,7 @@ public class UpdateProfileLikes {
 
 		ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		Service service=context.getBean(Service.class);
-		service.update_Profile_likes("navabsajjad.ali@gmail.com");
+		service.update_Profile_likes(1);
 		
 		
 	}

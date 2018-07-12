@@ -16,8 +16,9 @@ public interface Repositry {
 	public void updateUser(int i);
 	public void delete_user_info(int i);
 	public List<String> retrieve_all_details();
-	public int update_profile(String email);
+	public int update_profile(int res);
 	public void addItemstoShopperAdda(Category cate_gory);
+	public int delete_Profile_likes(int i);
 	
 	
 }
