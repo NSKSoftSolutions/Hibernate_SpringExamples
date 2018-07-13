@@ -13,7 +13,7 @@ public class Delete_profileAnd_likes {
 
 		ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		Service service = context.getBean(Service.class);
-		service.delete_profile_and_likes_info(3);
+		service.delete_profile_and_likes_info(4);
 
 	}
 }
