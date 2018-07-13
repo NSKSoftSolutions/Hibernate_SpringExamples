@@ -19,6 +19,8 @@ public interface Repositry {
 	public int update_profile(int res);
 	public void addItemstoShopperAdda(Category cate_gory);
 	public int delete_Profile_likes(int i);
+	public List ret_cat_brand_item_info();
+	public List getDistinct_info_of_brands();
 	
 	
 }

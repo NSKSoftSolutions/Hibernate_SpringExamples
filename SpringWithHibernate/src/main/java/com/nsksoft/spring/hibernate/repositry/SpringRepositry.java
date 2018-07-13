@@ -55,7 +55,7 @@ public class SpringRepositry implements Repositry {
 		// TODO Auto-generated method stub
 
 		Session session = factory.openSession();
-		Query differnt_country_people_info = session.createQuery(HQLConstants.list_distinct_countries);
+		Query differnt_country_people_info = session.createQuery(HQLConstants.list_distinct_firstName);
 		List<String> list = differnt_country_people_info.getResultList();
 		return list;
 
@@ -132,9 +132,9 @@ public class SpringRepositry implements Repositry {
 
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
-		
-		NativeQuery q=session.createSQLQuery(HQLConstants.update_profile_user_name);
-		q.setParameter(0,user_id);
+
+		NativeQuery q = session.createSQLQuery(HQLConstants.update_profile_user_name);
+		q.setParameter(0, user_id);
 		int result = q.executeUpdate();
 		tx.commit();
 		return result;
@@ -157,12 +157,29 @@ public class SpringRepositry implements Repositry {
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
 		NativeQuery q1 = session.createSQLQuery(HQLConstants.delete_profile_and_likes);
-		       q1.setParameter(0,user_id);
+		q1.setParameter(0, user_id);
 		int delete_row = q1.executeUpdate();
 
-		
-		
 		return delete_row;
+	}
+
+	public List ret_cat_brand_item_info() {
+		// TODO Auto-generated method stub
+
+		Session session = factory.openSession();
+		Query query = session.createQuery(HQLConstants.ret_cat_brand_item_details);
+		List list = query.list();
+
+		return list;
+	}
+
+	public List getDistinct_info_of_brands() {
+		// TODO Auto-generated method stub
+
+		Session session=factory.openSession();
+		Query query=session.createQuery(HQLConstants.retr_distinct_brand_details);
+		List  dictinct_brands=query.list();
+		return dictinct_brands;
 	}
 
 }
