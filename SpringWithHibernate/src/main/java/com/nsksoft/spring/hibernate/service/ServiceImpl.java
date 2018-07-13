@@ -86,4 +86,21 @@ public class ServiceImpl implements Service {
 		return rows_deleted;
 	}
 
+	public List retr_Cate_brand_items() {
+		// TODO Auto-generated method stub
+
+		List list = springrepo.ret_cat_brand_item_info();
+
+		return list;
+	}
+
+	public List getDistint_brands() {
+		// TODO Auto-generated method stub
+	
+		List list=springrepo.getDistinct_info_of_brands();
+		
+		
+		return list;
+	}
+
 }

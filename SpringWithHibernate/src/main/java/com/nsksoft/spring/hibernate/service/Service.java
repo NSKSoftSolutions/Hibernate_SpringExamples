@@ -18,6 +18,8 @@ public interface Service {
 	public int update_Profile_likes(int i);
 	public void addcategory_brand_item_details(Category cate_gory);
 	public int delete_profile_and_likes_info(int i);
+	public List retr_Cate_brand_items();
+	public List getDistint_brands();
 	
 	
 }
